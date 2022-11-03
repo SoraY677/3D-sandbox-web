@@ -1,9 +1,10 @@
 import Example0 from "./examples/0"
 
-// サンプル一覧
 const ExampleList = [
 	Example0
 ]
+
+const ROOT_PATH = '/3D-sandbox-web/examples/'
 
 export default {
 	run() {
@@ -17,7 +18,7 @@ export default {
 			
 	},
 	route() {
-		const path =  (location.pathname as string).replace('/','')
+		const path =  (location.pathname as string).replace(ROOT_PATH,'')
 		if(!path) {
 			this.transIndexPage()
 			return -1 
@@ -29,7 +30,7 @@ export default {
 			if(!ExampleList[parseInt(path)]) throw new Error
 
 		} catch(e) {
-			location.href = '/'
+			location.href = ROOT_PATH
 		}
 
 		return parseInt(path)
