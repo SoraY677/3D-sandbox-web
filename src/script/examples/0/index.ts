@@ -7,7 +7,7 @@ import { Camera } from '@graphics/Camera';
 export default class implements TEMPLATE_IF {
 	run() {
 		const stage = new Stage()
-		const camera = new Camera()		
+		const camera = new Camera()
 		const renderer = new Renderer()
 
 		const geometry = new THREE.BoxGeometry( 1, 1, 1 );
