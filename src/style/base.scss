@@ -1,0 +1,27 @@
+.app {
+	margin-top:2em;
+}
+
+.index-list-wrapper {
+	position: fixed;
+}
+
+.index-list-wrapper  button {
+	border:none;
+	padding: 0.3em 2em;
+	border: 1px solid #000;
+	border-radius: 9999em;
+	background-color: #fff;
+}
+
+.index-list-wrapper > .index-list {
+	display: flex;
+	flex-direction: row;
+	transform: translateX(-100%);
+	transition-duration: 0.3s;
+	padding: 1em;
+}
+
+.index-list-wrapper.active > .index-list {
+	transform: translateX(0%);
+}

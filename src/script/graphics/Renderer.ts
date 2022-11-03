@@ -16,7 +16,12 @@ export class Renderer {
 	) {
 		this.renderer = new WebGLRenderer()
 		this.renderer.setSize( size.w, size.h )
-		document.body.appendChild( this.renderer.domElement )
+
+		const appElement = document.getElementById('app') as HTMLDivElement
+		while(appElement.lastChild) {
+			appElement.removeChild(appElement.lastChild)
+		}
+		appElement.appendChild( this.renderer.domElement )
 	}
 	/**
 	 * @param stage 

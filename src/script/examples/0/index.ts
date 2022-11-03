@@ -25,5 +25,11 @@ export default class implements TEMPLATE_IF {
 		};
 		animate();
 	}
+
+	getInfo(): { title: string; } {
+		return {
+			title: '緑の箱が回る'
+		}
+	}
 }
 
