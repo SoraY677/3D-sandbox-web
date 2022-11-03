@@ -1,29 +1,24 @@
-import * as THREE from 'three';
-import { Stage } from './graphics/Stage';
-import { Renderer } from './graphics/Renderer';
-import { Camera } from './graphics/Camera';
+import Example0 from "./examples/0"
+
+// サンプル一覧
+const ExampleList = [
+	Example0
+]
 
 export default {
 	run() {
+		try {
+			const hash = (location.hash as string).replace('#', '')
+			const number = parseInt(hash)
 
-		const stage = new Stage()
-		const camera = new Camera()		
-		const renderer = new Renderer()
-
-		const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-		const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-		const cube = new THREE.Mesh( geometry, material );
-		stage.addObject(cube)
-
-		function animate() {
-			requestAnimationFrame( animate );
-
-			cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
-
-			renderer.render( stage.getStage(), camera.getCamera() );
-		};
-		animate();
-
+			const Example = ExampleList[number]
+			if(!Example) throw new Error("hash number wrong! not exist Example...");
+			
+			const example = new Example()
+			example.run()
+			
+		}catch(e) {
+			console.error(e)
+		}
 	}
 }

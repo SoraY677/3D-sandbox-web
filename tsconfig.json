@@ -13,7 +13,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@graphics/*": [
+        "./src/script/graphics/*"
+      ]
+    },
   },
-  "include": ["src"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
