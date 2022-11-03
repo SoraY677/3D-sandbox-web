@@ -7,17 +7,48 @@ const ExampleList = [
 
 export default {
 	run() {
+		const number = this.route()
+		if(number == -1) return
+		
+		const Example = ExampleList[number]
+		
+		const example = new Example()
+		example.run()
+			
+	},
+	route() {
+		const path =  (location.pathname as string).replace('/','')
+		if(!path) {
+			this.transIndexPage()
+			return -1 // empty string = index page
+		}
+		
 		try {
-			const hash = (location.hash as string).replace('#', '')
-			const number = parseInt(hash)
+			if(!new RegExp(/^[0-9]+$/).test(path)) throw new Error
 
-			const Example = ExampleList[number]
-			if(!Example) throw new Error("hash number wrong! not exist Example...");
-			
-			const example = new Example()
-			example.run()
-			
-		}catch(e) {
+			if(!ExampleList[parseInt(path)]) throw new Error
+
+		} catch(e) {
+			location.href = '/'
+		}
+
+		return parseInt(path)
+	},
+	transIndexPage() {
+		try {
+			const app = document.getElementById('app')
+			const ul = document.createElement('ul')
+			for(const index in ExampleList) {
+				const li = document.createElement('li')
+				const anchor = document.createElement('a')
+				anchor.href = `./${index}`
+				anchor.innerText = `${index}`
+				li.appendChild(anchor) 
+				ul.appendChild(li)
+			}
+			app?.appendChild(ul)
+
+		} catch(e) {
 			console.error(e)
 		}
 	}
