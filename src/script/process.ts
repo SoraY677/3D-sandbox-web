@@ -42,7 +42,7 @@ export default {
 			for(const index in ExampleList) {
 				const li = document.createElement('li')
 				const anchor = document.createElement('a')
-				anchor.href = `./${index}`
+				anchor.href = `${ROOT_PATH}${index}`
 				anchor.innerText = `${index}`
 				li.appendChild(anchor) 
 				ul.appendChild(li)
