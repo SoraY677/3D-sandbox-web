@@ -1,2 +1,12 @@
-# 3D-sandbox-web
-Weｂで3Ｄを遊んでみようのコーナー
+## commands
+
+```bash 
+$ yarn
+
+$ yarn dev 
+
+$ yarn build
+
+$ yarn preview
+
+```
