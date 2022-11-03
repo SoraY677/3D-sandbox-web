@@ -20,7 +20,7 @@ export default {
 		const path =  (location.pathname as string).replace('/','')
 		if(!path) {
 			this.transIndexPage()
-			return -1 // empty string = index page
+			return -1 
 		}
 		
 		try {
